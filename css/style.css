@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import url(normalize.css);
+:root{
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-light-gray: hsl(212, 45%, 89%);
+    --clr-light-blue: hsl(220, 15%, 55%);
+    --clr-dark-blue: hsl(218, 44%, 22%);
+
+    --clr-light-purple: hsl(253, 100%, 24%);
+    --clr-dark-purple: hsl(218, 98%, 12%);
+
+    --mobile-width: 375px;
+    --desktop-width: 1440px;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --clr-title-text: var(--clr-dark-blue);
+    --clr-general-text: var(--clr-light-blue);
+    --clr-main-bg: var(--clr-light-gray);
+    --clr-card-bg: var(--clr-white);
+}
+*, 
+*::before, 
+*::after{
+    transition: all .25s ease-in-out;
+}
+body{
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+}
+body.inverse{
+    --clr-title-text: var(--clr-white);
+    --clr-general-text: var(--clr-white);
+    --clr-main-bg: var(--clr-dark-purple);
+    --clr-card-bg: var(--clr-light-purple); 
+}
+.container{
+    padding-inline: 1.5rem;
+    min-height: 100vh;
+    margin-inline: auto;
+    background-color: var(--clr-main-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    margin-inline: 1.5rem;
+    max-width: 280px;
+    background-color: var(--clr-card-bg);
+    padding: .8rem .8rem 1rem .8rem;
+    border-radius: 1.25rem;
+    text-align: center;
+}
+
+.card-img{
+    width: 280px;
+    height: 280px;
+    border-radius: .75rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img .qr-image{
+    width: 100%;
+    z-index: 1;
+    scale: 1;
+}
+.card-img .icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    translate: -50% -50%;
+    scale: 1;
+}
+.card:hover .qr-image,
+.card:hover .icon{
+    scale: 1.4;
+}
+.card .title{
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-title-text);
+}
+
+.card p{
+    line-height: 1.2rem;
+    color: var(--clr-general-text);
+}
+
+.mode-selector ion-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline: .25rem;
+    color: var(--clr-title-text);
+}
+
+.attribution { 
+    color: var(--clr-title-text);
+    padding-block: .5rem;
+    width: 100%;
+    font-size: .7rem; text-align: center; 
+}
+  .attribution a { 
+    color: var(--clr-title-text); 
+    font-weight: var(--fw-bold);
+}
+
+/* custom checkbox*/
+.custom-checkbox{
+    display: none;
+}
+.custom-checkbox-span{
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #fff;
+    display: inline-block;
+    border: 2px solid var(--clr-light-purple);
+    box-shadow: 0 0 10px var(--clr-light-purple);
+
+}
+.custom-checkbox-span ion-icon{
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 2px;
+    left: 26px;
+    color:var(--clr-light-purple);
+    border-radius: 50%;
+}
+
+.custom-checkbox:checked + .custom-checkbox-span{
+    border: 2px solid var(--clr-dark-purple);
+    box-shadow: 0 0 10px var(--clr-white);
+}
+.custom-checkbox:checked + .custom-checkbox-span ion-icon{
+    top: 2px;
+    left: 0px;
+    color: var(--clr-dark-purple);
+}
+
+#sunny{
+    opacity: 0;
+    z-index: 0;
+}
+.custom-checkbox:checked + .custom-checkbox-span #sunny{
+    opacity: 1;
+    z-index: 1;
+}
+.custom-checkbox:checked + .custom-checkbox-span #moon{
+    opacity: 0;
+    z-index: 0;
+}
