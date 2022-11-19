@@ -1,42 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
 @import url(normalize.css);
 :root{
-    --clr-white: hsl(0, 0%, 100%);
-    --clr-light-gray: hsl(212, 45%, 89%);
-    --clr-light-blue: hsl(220, 15%, 55%);
-    --clr-dark-blue: hsl(218, 44%, 22%);
 
-    --clr-light-purple: hsl(253, 100%, 24%);
-    --clr-dark-purple: hsl(218, 98%, 12%);
+    --clr-dark-cian: hsl(158, 36%, 37%);
+    --clr-dark-cian-hover: hsl(156, 42%, 18%);
+    --clr-cream: hsl(30, 38%, 92%);
+
+    --clr-dark-blue:hsl(212, 21%, 14%);
+    --clr-dark-grayish-blue: hsl(228, 12%, 48%);
+
+    --clr-white: hsl(0, 0%, 100%);
 
     --mobile-width: 375px;
     --desktop-width: 1440px;
 
-    --fw-regular: 400;
+    --fw-regular: 500;
     --fw-bold: 700;
 
-    --clr-title-text: var(--clr-dark-blue);
-    --clr-general-text: var(--clr-light-blue);
-    --clr-main-bg: var(--clr-light-gray);
-    --clr-card-bg: var(--clr-white);
 }
-*, 
-*::before, 
-*::after{
-    transition: all .25s ease-in-out;
-    margin: 0 ;
-    padding: 0 ;
-}
+
 body{
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
+    color: var(--clr-dark-grayish-blue);
 }
-body.inverse{
-    --clr-title-text: var(--clr-white);
-    --clr-general-text: var(--clr-white);
-    --clr-main-bg: var(--clr-dark-purple);
-    --clr-card-bg: var(--clr-light-purple); 
-}
+
 .h1{
     font-family: 'Fraunces', serif;
     font-size: 2em;
@@ -46,7 +34,7 @@ body.inverse{
     padding-inline: 1.5rem;
     min-height: 100vh;
     margin-inline: auto;
-    background-color: var(--clr-main-bg);
+    background-color: var(--clr-cream);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,22 +42,13 @@ body.inverse{
 
 .product-card{
     display: grid;
-    gap: .75rem;
-    grid-template:  "image type" 2rem
-                    "image name" 10rem
-                    "image description" 6rem
-                    "image price" 2.25rem
-                    "image buttom" 2.25rem / 1fr 1fr;
+    grid-template:  "image detail" 450px /1fr 1fr;
     margin-inline: 1.5rem;
-    max-width: 580px;
-    background-color: var(--clr-card-bg);
+    max-width: 600px;
+    background-color: var(--clr-white);
     padding: 0;
-    border-radius: 1.25rem;
+    border-radius: 1rem;
     overflow: hidden;
-}
-.product-card > * + *{
-    padding: .6rem;
-    margin-bottom: .6rem;
 }
 
 .product-img{
@@ -83,25 +62,70 @@ body.inverse{
     height: 100%;
     object-fit: cover;
 }
+.product-details{
+    padding: 2rem;
+    grid-area: detail;
+}
+.product-details > * + *{
+margin-top: 1.85rem;
+}
 
-.card .title{
-    font-size: 1.5rem;
+.product-type{
+    text-transform: uppercase;
+    letter-spacing: .25rem;
+    font-size: .75rem;
+    color: var(--clr-light-gray);
+}
+.h1,
+.product-name{
+    line-height: 1.8rem;
     font-weight: var(--fw-bold);
-    color: var(--clr-title-text);
+    font-family: 'Fraunces','sans-serif';
+    color: hsl(0, 0%, 5%);
+    letter-spacing: .02rem;
 }
 
-.card p{
-    line-height: 1.2rem;
-    color: var(--clr-general-text);
+.description{
+    font-size: .8rem;
+    line-height: 1.5rem;
+    letter-spacing: .02rem;
+}
+.price{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 1.25rem;
 }
 
-.mode-selector ion-icon{
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-inline: .25rem;
-    color: var(--clr-title-text);
+.price .actual{
+    color: var(--clr-dark-cian);
 }
-
+.price .old{
+    text-decoration: line-through;
+}
+.btn{
+    width: 100%;
+    padding: .8rem;
+    color: var(--clr-white);
+    background-color: var(--clr-dark-cian);
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+    letter-spacing: 0;
+}
+.btn ion-icon{
+    font-size: 1.25rem;
+    line-height: 1rem;
+}
+.btn:hover{
+    background-color: var(--clr-dark-cian-hover);
+    cursor: pointer;
+    letter-spacing: .02rem;
+}
 .attribution { 
     margin-top: -3em;
     color: var(--clr-title-text);
@@ -113,52 +137,4 @@ body.inverse{
   .attribution a { 
     color: var(--clr-title-text); 
     font-weight: var(--fw-bold);
-}
-
-/* custom checkbox*/
-.custom-checkbox{
-    display: none;
-}
-.custom-checkbox-span{
-    position: relative;
-    width: 60px;
-    height: 30px;
-    border-radius: 30px;
-    background-color: #fff;
-    display: inline-block;
-    border: 2px solid var(--clr-light-purple);
-    box-shadow: 0 0 10px var(--clr-light-purple);
-
-}
-.custom-checkbox-span ion-icon{
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    top: 2px;
-    left: 26px;
-    color:var(--clr-light-purple);
-    border-radius: 50%;
-}
-
-.custom-checkbox:checked + .custom-checkbox-span{
-    border: 2px solid var(--clr-dark-purple);
-    box-shadow: 0 0 10px var(--clr-white);
-}
-.custom-checkbox:checked + .custom-checkbox-span ion-icon{
-    top: 2px;
-    left: 0px;
-    color: var(--clr-dark-purple);
-}
-
-#sunny{
-    opacity: 0;
-    z-index: 0;
-}
-.custom-checkbox:checked + .custom-checkbox-span #sunny{
-    opacity: 1;
-    z-index: 1;
-}
-.custom-checkbox:checked + .custom-checkbox-span #moon{
-    opacity: 0;
-    z-index: 0;
 }
