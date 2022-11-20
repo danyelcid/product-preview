@@ -131,8 +131,7 @@ margin-top: 1.85rem;
     letter-spacing: .02rem;
 }
 .attribution { 
-    margin-top: -3em;
-    background-color: var(--clr-main-bg);
+    background-color: var(--clr-cream);
     padding-block: .5rem;
     width: 100%;
     font-size: .7rem; text-align: center; 
