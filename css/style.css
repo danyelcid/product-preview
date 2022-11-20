@@ -132,15 +132,19 @@ margin-top: 1.85rem;
 }
 .attribution { 
     margin-top: -3em;
-    color: var(--clr-title-text);
     background-color: var(--clr-main-bg);
     padding-block: .5rem;
     width: 100%;
     font-size: .7rem; text-align: center; 
 }
   .attribution a { 
-    color: var(--clr-title-text); 
+    color: var(--clr-dark-cian); 
     font-weight: var(--fw-bold);
+    text-decoration: none;
+}
+.attribution a:hover {
+    text-decoration: underline;
+    letter-spacing: .03rem;
 }
 
 @media (max-width: 376px) {
